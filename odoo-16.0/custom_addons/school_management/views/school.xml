@@ -12,6 +12,18 @@
                             <field name="class_id"/>
                             <field name="division"/>
                         </group>
+                        <group>
+                            <field name="float_no"/>
+                            <field name="document"/>
+                            <field name="true"/>
+                            <field name="image"/>
+                            <field name="date"/>
+                            <field name="age"/>
+                            <field name="product_id"/>
+                            <field name="product_ids"/>
+                            <field name="price"/>
+                            <field name="currency_id"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -21,7 +33,7 @@
     <record id="action_student" model="ir.actions.act_window">
         <field name="name">Student</field>
         <field name="res_model">school.student</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create School details
@@ -31,6 +43,11 @@
 
     <menuitem id="school_root" name="School" sequence="-1"/>
     <menuitem id="school_exams_menu" parent="school_root"
-                name="School" action="action_student" sequence="6"/>
+                name="School" action="action_student" sequence="4"/>
 
+    <menuitem id="res_partner_menu_customer"
+              name="Customers"
+              parent="school_root"
+              action="base.action_partner_form"
+              sequence="5"/>
 </odoo>
