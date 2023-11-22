@@ -11,18 +11,20 @@
                             <field name="name"/>
                             <field name="class_id"/>
                             <field name="division"/>
-                        </group>
-                        <group>
                             <field name="float_no"/>
                             <field name="document"/>
                             <field name="true"/>
                             <field name="image"/>
                             <field name="date"/>
                             <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="admn_date"/>
                             <field name="product_id"/>
                             <field name="product_ids"/>
                             <field name="price"/>
                             <field name="currency_id"/>
+                            <field name="officer_id"/>
                         </group>
                     </group>
                 </sheet>

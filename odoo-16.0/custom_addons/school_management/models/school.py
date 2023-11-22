@@ -23,9 +23,19 @@ class School(models.Model):
     product_ids = fields.Many2many('product.product')
     price = fields.Monetary()
     currency_id = fields.Many2one('res.currency')
+    admn_date = fields.Date(default=fields.date.today())
+    officer_id = fields.Many2one('res.users',string='Office',default=lambda self:self.env.user)
 
     @api.depends('date')
     def _compute_age(self):
         self.age = False
         for rec in self:
             rec.age = relativedelta(date.today(),rec.date).years
+
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        domain = []
+        if name:
+            domain = ['|', '|', ('name', operator, name), ('phone', operator, name), ('email', operator, name)]
+        return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid)
