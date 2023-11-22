@@ -23,3 +23,11 @@ class ResPartner(models.Model):
         for rec in self:
             if rec.dob > today:
                 raise ValidationError('Invalid Date of Brith')
+
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        domain = []
+        if name:
+            domain = ['|', '|', ('name', operator, name), ('phone', operator, name), ('email', operator, name)]
+        return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid)
