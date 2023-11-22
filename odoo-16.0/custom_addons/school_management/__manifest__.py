@@ -17,6 +17,8 @@ You could use this simplified accounting in case you work with an (external) acc
     'data': [
         'security/ir.model.access.csv',
         'views/school.xml',
+        'report/school_report.xml',
+        'report/school_template.xml'
     ],
     'demo': [
 
