@@ -16,6 +16,7 @@ You could use this simplified accounting in case you work with an (external) acc
     'depends': ['base', 'contacts', 'hr', 'account'],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'views/school.xml',
     ],
     'demo': [
