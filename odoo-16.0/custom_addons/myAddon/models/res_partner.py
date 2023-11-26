@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 from datetime import date
 from dateutil.relativedelta import relativedelta
@@ -10,6 +10,16 @@ class ResPartner(models.Model):
 
     dob = fields.Date(string='Date of Birth')
     age = fields.Integer(string='Age',compute='_compute_age')
+
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get('dob'):
+                raise ValidationError(_("DOB fiels can not be emply"))
+        res = super(ResPartner, self).create(vals_list)
+
+        return res
 
     @api.depends('dob')
     def _compute_age(self):

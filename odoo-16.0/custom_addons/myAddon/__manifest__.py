@@ -1,11 +1,11 @@
 {
-    'name': 'Partner - Add Birthday Field',
+    'name': 'my Addon',
     'version': '16.0.1.0.0',
-    'summary': 'Partner - Add Birthday Field',
+    'summary': 'my Addon',
     'sequence': 11,
     'description': """""",
     'category': 'Tools',
-    'depends': ['base', 'contacts'],
+    'depends': ['base', 'contacts', 'purchase', 'product'],
     'website': '',
     'data': [
         'views/res_partner_views.xml',
